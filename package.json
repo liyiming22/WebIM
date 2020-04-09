@@ -1,0 +1,12 @@
+{
+  "name": "webim",
+  "version": "1.0.0",
+  "description": "A web im based on React Typescript Node ws etc",
+  "private": true,
+  "main": "index.js",
+  "author": "YeomanLi <Yeoman_Li@Outlook.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo 'skip test...'"
+  }
+}
