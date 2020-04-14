@@ -7,6 +7,7 @@ const ENABLE_OPEN = !!argv.open;
 
 const HOST = '127.0.0.1';
 const DEFAULT_PORT = 3000;
+const COPYRIGHT = `/** @preserve Powered by WebIM (https://github.com/YeomanLi/WebIM) */`;
 
 const PROJECT_ROOT = path.resolve(__dirname, '../../');
 const PROJECT_NAME = path.parse(PROJECT_ROOT).name;
@@ -21,4 +22,5 @@ export {
   PROJECT_ROOT,
   PROJECT_NAME,
   HMR_PATH,
+  COPYRIGHT,
 };

@@ -11,14 +11,14 @@ import CompressionPlugin from 'compression-webpack-plugin';
 import SizePlugin from 'size-plugin';
 
 import commonConfig from './webpack.common';
-import { ENABLE_ANALYZE, PROJECT_ROOT } from '../utils/constants';
+import { ENABLE_ANALYZE, PROJECT_ROOT, COPYRIGHT } from '../utils/constants';
 
 const mergedConfig = merge(commonConfig, {
   mode: 'production',
   plugins: [
     new BannerPlugin({
       raw: true,
-      banner: 'Welcome...',
+      banner: COPYRIGHT,
     }),
     new ForkTsCheckerWebpackPlugin({
       memoryLimit: 1024 * 2,
