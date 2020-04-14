@@ -4,8 +4,8 @@ import { hot } from 'react-hot-loader/root';
 import './App.scss';
 
 interface CounterProps {
-  initialCount?: number
-};
+  initialCount?: number;
+}
 
 const Counter = memo(function Counter({ initialCount = 0 }: CounterProps) {
   const [count, setCount] = useState(initialCount);
@@ -22,10 +22,9 @@ const Counter = memo(function Counter({ initialCount = 0 }: CounterProps) {
       </button>
     </div>
   );
-
 });
 
-function App () {
+function App() {
   return (
     <div className="app">
       <h2 className="title">This is a template project.</h2>

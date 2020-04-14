@@ -9,7 +9,7 @@ import setupMiddlewares from './middlewares';
 import { HOST, DEFAULT_PORT } from './utils/constants';
 import openBrowser from './utils/openBrowser';
 
-async function start () {
+async function start() {
   const PORT = await getPort(HOST, DEFAULT_PORT);
   const address = `http://${HOST}:${PORT}`;
   const devServer = express();
@@ -17,7 +17,7 @@ async function start () {
   setupMiddlewares(devServer, compiler);
   openBrowser(compiler, address);
 
-  const httpServer = devServer.listen(PORT, HOST, err => {
+  const httpServer = devServer.listen(PORT, HOST, (err) => {
     if (err) {
       console.error(err);
       return;
@@ -33,7 +33,7 @@ async function start () {
       httpServer.close();
       // 在 ctrl + c 的时候随机输出 'See you again' 和 'Goodbye'
       console.log(
-        chalk.greenBright.bold(`\n${Math.random() > 0.5 ? 'See you again' : 'Goodbye'}!`)
+        chalk.greenBright.bold(`\n${Math.random() > 0.5 ? 'See you again' : 'Goodbye'}!`),
       );
       // 退出 node 进程
       process.exit();

@@ -6,8 +6,8 @@ const envPreset = [
     // 指定 corejs 的版本
     corejs: 3,
     // 禁用模块化方案转换
-    modules: false
-  }
+    modules: false,
+  },
 ];
 
 module.exports = function (api) {

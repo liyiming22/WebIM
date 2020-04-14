@@ -1,5 +1,5 @@
 import { Compiler } from 'webpack';
-import  webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 
 import devConfig from '../configs/webpack.dev';
@@ -21,6 +21,6 @@ export default function webpackMiddleware(compiler: Compiler) {
 
   return [
     webpackDevMiddleware(compiler, devMiddlewareOptions),
-    webpackHotMiddleware(compiler, hotMiddlewareOptions)
+    webpackHotMiddleware(compiler, hotMiddlewareOptions),
   ];
 }

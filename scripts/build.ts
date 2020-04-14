@@ -14,7 +14,7 @@ compiler.run((error, stats) => {
   const prodStatsOptions = {
     preset: 'normal',
     modules: ENABLE_ANALYZE,
-    colors: true
+    colors: true,
   };
 
   console.log(stats.toString(prodStatsOptions));

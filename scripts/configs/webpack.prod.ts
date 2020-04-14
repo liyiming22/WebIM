@@ -18,25 +18,25 @@ const mergedConfig = merge(commonConfig, {
   plugins: [
     new BannerPlugin({
       raw: true,
-      banner: 'Welcome...'
+      banner: 'Welcome...',
     }),
     new ForkTsCheckerWebpackPlugin({
       memoryLimit: 1024 * 2,
       tsconfig: resolve(PROJECT_ROOT, './src/tsconfig.json'),
-      measureCompilationTime: true
+      measureCompilationTime: true,
     }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash].css',
       chunkFilename: 'css/[id].[contenthash].css',
-      ignoreOrder: false
+      ignoreOrder: false,
     }),
     new CompressionPlugin({ cache: true }),
-    new SizePlugin({ writeFile: false })
+    new SizePlugin({ writeFile: false }),
   ],
   optimization: {
     minimize: true,
-    minimizer: [new TerserPlugin({ extractComments: false }), new OptimizeCSSAssetsPlugin()]
-  }
+    minimizer: [new TerserPlugin({ extractComments: false }), new OptimizeCSSAssetsPlugin()],
+  },
 });
 
 const smp = new SpeedMeasurePlugin();

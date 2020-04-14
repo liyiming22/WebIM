@@ -20,5 +20,5 @@ export {
   DEFAULT_PORT,
   PROJECT_ROOT,
   PROJECT_NAME,
-  HMR_PATH
+  HMR_PATH,
 };

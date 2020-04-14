@@ -24,10 +24,10 @@ const htmlMinifyOptions: HtmlMinifierOptions = {
   minifyCSS: true,
   minifyJS: true,
   minifyURLs: true,
-  useShortDoctype: true
+  useShortDoctype: true,
 };
 
-function getCssLoaders (importLoaders: number) {
+function getCssLoaders(importLoaders: number) {
   return [
     __DEV__ ? 'style-loader' : MiniCssExtractLoader,
     {
@@ -35,13 +35,13 @@ function getCssLoaders (importLoaders: number) {
       options: {
         modules: false,
         sourceMap: true,
-        importLoaders
-      }
+        importLoaders,
+      },
     },
     {
       loader: 'postcss-loader',
-      options: { sourceMap: true }
-    }
+      options: { sourceMap: true },
+    },
   ];
 }
 
@@ -53,21 +53,21 @@ const commonConfig: Configuration = {
     publicPath: '/',
     path: path.resolve(PROJECT_ROOT, './dist'),
     filename: 'js/[name]-[hash].bundle.js',
-    hashSalt: PROJECT_NAME || 'default-name'
+    hashSalt: PROJECT_NAME || 'default-name',
   },
   resolve: {
     extensions: ['.js', '.tsx', 'ts', '.json'],
     alias: {
       // 替换 react-dom 成 @hot-loader/react-dom 以支持 react hooks 的 hot reload
       'react-dom': '@hot-loader/react-dom',
-      '@': path.resolve(PROJECT_ROOT, './src')
-    }
+      '@': path.resolve(PROJECT_ROOT, './src'),
+    },
   },
   plugins: [
     new WebpackBar({
       name: 'WebIM',
       // react blue
-      color: '#61dafb'
+      color: '#61dafb',
     }),
     new FriendlyErrorsPlugin(),
     new WebpackBuildNotifierPlugin({ suppressSuccess: true }),
@@ -84,13 +84,11 @@ const commonConfig: Configuration = {
           htmlWebpackPlugin: {
             tags: assetTags,
             files: assets,
-            options
+            options,
           },
-          PUBLIC_PATH: rawPublicPath.endsWith('/')
-              ? rawPublicPath.slice(0, -1)
-              : rawPublicPath
+          PUBLIC_PATH: rawPublicPath.endsWith('/') ? rawPublicPath.slice(0, -1) : rawPublicPath,
         };
-      }
+      },
     }),
     new CopyPlugin(
       [
@@ -102,10 +100,10 @@ const commonConfig: Configuration = {
           toType: 'dir',
           // index.html 会通过 html-webpack-plugin 自动生成，所以需要被忽略掉
           ignore: ['index.html'],
-        }
+        },
       ],
-      { context: path.resolve(PROJECT_ROOT, './public') }
-    )
+      { context: path.resolve(PROJECT_ROOT, './public') },
+    ),
   ],
   module: {
     rules: [
@@ -118,7 +116,7 @@ const commonConfig: Configuration = {
       },
       {
         test: /\.css$/i,
-        use: getCssLoaders(0)
+        use: getCssLoaders(0),
       },
       {
         test: /\.scss$/,
@@ -126,9 +124,9 @@ const commonConfig: Configuration = {
           ...getCssLoaders(2),
           {
             loader: 'sass-loader',
-            options: { sourceMap: true }
-          }
-        ]
+            options: { sourceMap: true },
+          },
+        ],
       },
       {
         test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
@@ -159,7 +157,7 @@ const commonConfig: Configuration = {
           },
         ],
       },
-    ]
+    ],
   },
 };
 

@@ -4,11 +4,11 @@ import { createProxyMiddleware } from 'http-proxy-middleware';
 
 import proxyTable from '../configs/proxy';
 
-function link (str: string) {
+function link(str: string) {
   return chalk.magenta.underline(str);
 }
 
-export default function proxyMiddleware (server: Express) {
+export default function proxyMiddleware(server: Express) {
   Object.entries(proxyTable).forEach(([path, options]) => {
     const from = path;
     const to = options.target as string;
