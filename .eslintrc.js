@@ -60,6 +60,13 @@ module.exports = {
       },
     ],
 
+    '@typescript-eslint/interface-name-prefix': [
+      'error',
+      {
+        prefixWithI: 'always',
+      },
+    ],
+
     'unicorn/prevent-abbreviations': OFF,
     'unicorn/filename-case': [
       ERROR,
