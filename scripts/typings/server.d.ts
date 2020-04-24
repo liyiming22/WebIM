@@ -1,5 +1,5 @@
 import { Options } from 'http-proxy-middleware/dist/types';
 
-export interface ProxyTable {
+export interface IProxyTable {
   [path: string]: Options;
 }

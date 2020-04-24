@@ -1,0 +1,8 @@
+POST http://localhost:9090/api/user/signup
+Content-Type: application/json
+
+{
+  "account": "6578429614444",
+  "password": "TIM319810"
+}
+

@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import React from 'react';
 import { hot } from 'react-hot-loader/root';
 
 function App() {

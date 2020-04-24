@@ -1,7 +1,7 @@
 declare module 'speed-measure-webpack-plugin' {
   import { Configuration, Plugin } from 'webpack';
 
-  interface SpeedMeasurePluginOptions {
+  interface ISpeedMeasurePluginOptions {
     disable: boolean;
     outputFormat: 'json' | 'human' | 'humanVerbose' | ((outputObj: object) => void);
     outputTarget: string | ((outputObj: string) => void);
@@ -10,7 +10,7 @@ declare module 'speed-measure-webpack-plugin' {
   }
 
   class SpeedMeasurePlugin extends Plugin {
-    constructor(options?: Partial<SpeedMeasurePluginOptions>);
+    constructor(options?: Partial<ISpeedMeasurePluginOptions>);
     wrap(webpackConfig: Configuration): Configuration;
   }
 
@@ -20,7 +20,7 @@ declare module 'speed-measure-webpack-plugin' {
 declare module 'size-plugin' {
   import { Plugin } from 'webpack';
 
-  interface SizePluginOptions {
+  interface ISizePluginOptions {
     pattern: string;
     exclude: string;
     filename: string;
@@ -30,7 +30,7 @@ declare module 'size-plugin' {
   }
 
   class SizePlugin extends Plugin {
-    constructor(options?: Partial<SizePluginOptions>);
+    constructor(options?: Partial<ISizePluginOptions>);
   }
 
   export = SizePlugin;

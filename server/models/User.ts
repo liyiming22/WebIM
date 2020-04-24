@@ -15,7 +15,7 @@ export interface IUser extends Document {
 
 type comparePasswordFunction = (
   candidatePassword: string,
-  cb: (err: any, isMatch: any) => {},
+  cb: (err: mongoose.Error, isMatch: boolean) => void,
 ) => void;
 
 const userSchema: Schema = new Schema(

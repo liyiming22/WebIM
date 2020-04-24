@@ -1,12 +1,6 @@
-import express from 'express';
+import app from './app';
+import { HOST, SERVER_PORT } from './config/environment';
 
-// const PORT = 9090;
-
-const app = express();
-app.listen(app.get('port'), () => {
-  console.log(
-    '  App is running at http://localhost:%d in %s mode',
-    app.get('port'),
-    app.get('env'),
-  );
+const server = app.listen(SERVER_PORT, HOST, () => {
+  console.log('  App is running at %s', server.address());
 });

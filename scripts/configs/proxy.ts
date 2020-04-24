@@ -1,6 +1,6 @@
-import { ProxyTable } from '../typings/server';
+import { IProxyTable } from '../typings/server';
 
-const proxyTable: ProxyTable = {
+const proxyTable: IProxyTable = {
   //
 };
 

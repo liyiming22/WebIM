@@ -1,15 +1,15 @@
-interface IdbConfig {
+interface IDBConfig {
   servername: string;
   port: string;
   DATABASE: string;
 }
 
-const dbConfig: IdbConfig = {
+const dbConfig: IDBConfig = {
   servername: 'localhost',
   port: '27017',
   DATABASE: 'webim',
 };
 
-const db = `mongodb://${dbConfig.servername}:${dbConfig.port}/${dbConfig.DATABASE}`;
+const DB_URL = `mongodb://${dbConfig.servername}:${dbConfig.port}/${dbConfig.DATABASE}`;
 
-export default db;
+export default DB_URL;
