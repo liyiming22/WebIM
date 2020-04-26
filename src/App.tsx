@@ -1,11 +1,20 @@
 import React from 'react';
+// import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { hot } from 'react-hot-loader/root';
 
+import AuthProvider from './context/AuthContext';
+import Login from './containers/Login';
+import SignUp from './containers/SignUp';
+
 function App() {
+  // return <BrowserRouter></BrowserRouter>;
   return (
-    <div className="app">
-      <h2 className="title">This ifdss a template project.</h2>
-    </div>
+    <>
+      <AuthProvider>
+        <Login />
+        <SignUp />
+      </AuthProvider>
+    </>
   );
 }
 

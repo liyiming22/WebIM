@@ -67,6 +67,12 @@ module.exports = {
       },
     ],
 
+    // 允许展开 props
+    'react/jsx-props-no-spreading': ['error', { custom: 'ignore' }],
+
+    // TypeScript interfaces/props are good enough to replace React's prop types
+    'react/prop-types': 0,
+
     'unicorn/prevent-abbreviations': OFF,
     'unicorn/filename-case': [
       ERROR,
