@@ -56,7 +56,7 @@ const commonConfig: Configuration = {
     hashSalt: PROJECT_NAME || 'default-name',
   },
   resolve: {
-    extensions: ['.js', '.tsx', 'ts', '.json'],
+    extensions: ['.js', '.tsx', '.ts', '.json'],
     alias: {
       // 替换 react-dom 成 @hot-loader/react-dom 以支持 react hooks 的 hot reload
       'react-dom': '@hot-loader/react-dom',

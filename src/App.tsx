@@ -1,20 +1,31 @@
 import React from 'react';
-// import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { hot } from 'react-hot-loader/root';
 
+import ProtectedRoute, { defaultProtectedRouteProps } from './routes/ProtectedRoute';
+import { ROUTES_REQUIRE_AUTH, AUTH_ROUTES, route2component } from './routes';
+
 import AuthProvider from './context/AuthContext';
-import Login from './containers/Login';
-import SignUp from './containers/SignUp';
 
 function App() {
-  // return <BrowserRouter></BrowserRouter>;
   return (
-    <>
-      <AuthProvider>
-        <Login />
-        <SignUp />
-      </AuthProvider>
-    </>
+    <BrowserRouter>
+      <Switch>
+        {[...ROUTES_REQUIRE_AUTH].map((route) => (
+          <ProtectedRoute
+            {...defaultProtectedRouteProps}
+            path={route}
+            component={route2component.get(route)}
+            key={route}
+          />
+        ))}
+        <AuthProvider>
+          {[...AUTH_ROUTES].map((route) => (
+            <Route path={route} component={route2component.get(route)} key={route} />
+          ))}
+        </AuthProvider>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
