@@ -30,6 +30,13 @@ function App() {
           ))}
         </AuthProvider>
       </Switch>
+      {/* <BottomNavigationAction>
+        <BottomNavigation
+
+        />
+        <BottomNavigation />
+        <BottomNavigation />
+      </BottomNavigationAction> */}
     </BrowserRouter>
   );
 }

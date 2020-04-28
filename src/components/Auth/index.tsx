@@ -2,16 +2,19 @@
 import React, { useContext, useRef } from 'react';
 import { Link as RouterLink, useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
+import {
+  Avatar,
+  Button,
+  CssBaseline,
+  TextField,
+  Link,
+  Grid,
+  Box,
+  Typography,
+  Container,
+} from '@material-ui/core';
+// TODO: 图标暂时只能用这种方法加载
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
 
 import Api from '../../utils/apis';
 import { AuthContext, IAuthCtx } from '../../context/AuthContext';
