@@ -1,7 +1,7 @@
 import React, { createContext, useReducer } from 'react';
 
 export interface IAuthCtx {
-  nickname?: string;
+  nickname: string;
   account: string;
   password: string;
 }
@@ -26,7 +26,7 @@ export function authReducer(state: IAuthCtx = initAuthState, action: AuthCtxActi
 }
 
 export const AuthContext = createContext<{
-  state: typeof initAuthState;
+  state: IAuthCtx;
   dispatch: React.Dispatch<AuthCtxAction>;
 }>({
   state: initAuthState,

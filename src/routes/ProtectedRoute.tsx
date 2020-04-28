@@ -1,6 +1,8 @@
 import React from 'react';
 import { Redirect, Route, RouteProps } from 'react-router-dom';
 
+import { getItem } from '../utils/localStorage';
+
 export interface IProtectedRouteProps extends RouteProps {
   checkState: () => boolean;
   isAllowed: boolean;
@@ -9,7 +11,7 @@ export interface IProtectedRouteProps extends RouteProps {
 }
 
 export const defaultProtectedRouteProps: IProtectedRouteProps = {
-  checkState: () => localStorage.getItem('loginstate') === 'ok',
+  checkState: () => getItem('token'),
   isAllowed: true,
   authenticationPath: '/login',
   restrictedPath: '/login',
@@ -25,7 +27,6 @@ const ProtectedRoute: React.FC<IProtectedRouteProps> = React.memo(function Prote
   if (isAuthenticated && !isAllowed) {
     redirectPath = restrictedPath;
   }
-  console.log(redirectPath);
   if (redirectPath) {
     const renderComponent = () => <Redirect to={{ pathname: redirectPath }} />;
     return <Route {...props} component={renderComponent} render={undefined} />;

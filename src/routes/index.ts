@@ -4,6 +4,7 @@ import loadable from '@loadable/component';
 export const ROUTES_REQUIRE_AUTH = new Set([
   // '/group_chat/:group_id',
   // '/private_chat/:uid',
+  '/',
   '/profile/:uid',
   '/msglist',
   '/addresslist',
@@ -12,6 +13,7 @@ export const ROUTES_REQUIRE_AUTH = new Set([
 export const AUTH_ROUTES = new Set(['/signup', '/login']);
 
 export const route2component = new Map([
+  ['/', loadable(() => import('../containers/MsgList'))],
   ['/signup', loadable(() => import('../containers/SignUp'))],
   ['/login', loadable(() => import('../containers/Login'))],
   ['/profile/:uid', loadable(() => import('../containers/Profile'))],

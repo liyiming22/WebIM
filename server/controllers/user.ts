@@ -15,9 +15,10 @@ const userController = {
     try {
       const existingUser = await User.findOne({ account: req.body.account });
       if (existingUser) {
-        res.status(400).json({
-          msg: 'error',
-          data: '该账号已被注册',
+        res.json({
+          status: 1003,
+          code: 'Warning',
+          msg: '该账号已被注册',
         });
       } else {
         const user = new User({
@@ -27,24 +28,28 @@ const userController = {
         user
           .save()
           .then((savedUser) =>
-            res.status(200).json({
-              msg: 'success',
+            res.json({
+              status: 1005,
+              code: 'Success',
+              msg: '注册成功',
               data: savedUser,
             }),
           )
           .catch((error) => {
-            console.log(error);
-            res.status(500).json({
-              msg: 'error',
-              data: 'server error...',
+            res.json({
+              status: 2003,
+              code: 'Warning',
+              msg: 'server error...',
+              error,
             });
           });
       }
     } catch (error) {
-      console.log(error);
-      res.status(500).json({
-        msg: 'error',
-        data: 'server error...',
+      res.json({
+        status: 2003,
+        code: 'Warning',
+        msg: 'server error...',
+        error,
       });
     }
   },
@@ -58,9 +63,10 @@ const userController = {
     try {
       const user = await User.findOne({ account });
       if (!user) {
-        res.status(404).json({
-          msg: 'error',
-          data: '账号不存在',
+        res.json({
+          status: 1002,
+          code: 'Warning',
+          msg: '账号不存在',
         });
         // TO DO: redirect to register page
       } else {
@@ -70,25 +76,29 @@ const userController = {
           }
           if (isMatch) {
             const userInfo = pick(user, ['account', 'nickname', 'id']);
-            res.status(200).json({
-              msg: 'success',
+            res.json({
+              status: 1000,
+              code: 'Success',
+              msg: '登录成功',
               data: {
                 userInfo,
                 token: jwt.encode(userInfo, jwtConfig.secret),
               },
             });
           } else {
-            res.status(401).json({
-              msg: 'error',
-              data: '密码错误',
+            res.json({
+              status: 1001,
+              code: 'Warning',
+              msg: '密码错误',
             });
           }
         });
       }
     } catch (error) {
-      res.status(500).json({
-        msg: 'error',
-        data: 'server error...',
+      res.json({
+        status: 2003,
+        code: 'Warning',
+        msg: 'server error...',
       });
     }
   },

@@ -12,6 +12,8 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    // 有些库没有声明文件，先这样关掉检查
+    "noImplicitAny": false,
 
     /* Module Resolution Options */
     "moduleResolution": "node",
